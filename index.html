@@ -34,8 +34,6 @@
         Meet real people, build meaningful connections, and start your next chapter in Japan.
       </p>
 
-     
-
       <div class="stats">
         <div>
           <strong>25K+</strong>
@@ -92,7 +90,6 @@
         </div>
         <h2 data-en="Your last name" data-jp="苗字">Almost Done</h2>
         <p class="apple-subtitle" data-en="Almost done" data-jp="もう少しで完了"></p>
-        <p class="apple-email-display" id="displayFirstName"></p>
 
         <form id="surnameForm">
           <div class="input-group">
@@ -121,7 +118,6 @@
         <p class="apple-subtitle" data-en="Enter the 6-digit verification code" data-jp="6桁の認証コードを入力してください">
           Enter the 6-digit verification code
         </p>
-        <p class="apple-email-display" id="displayFullName"></p>
 
         <form id="codeForm">
           <div class="code-inputs" id="codeInputs">
@@ -227,8 +223,6 @@
     // Элементы
     const firstName = document.getElementById('firstName');
     const lastName = document.getElementById('lastName');
-    const displayFirstName = document.getElementById('displayFirstName');
-    const displayFullName = document.getElementById('displayFullName');
     const codeDigits = document.querySelectorAll('.code-digit');
 
     // Формы
@@ -243,7 +237,8 @@
     // Показать шаг
     function showStep(stepNumber) {
       document.querySelectorAll('.apple-step').forEach(el => el.classList.remove('active'));
-      document.getElementById(`step${stepNumber}`).classList.add('active');
+      const target = document.getElementById(`step${stepNumber}`);
+      if (target) target.classList.add('active');
       currentStep = stepNumber;
     }
 
@@ -298,7 +293,6 @@
         return;
       }
       firstName.closest('.input-group').classList.remove('error');
-      displayFirstName.textContent = name;
       showStep(2);
       setTimeout(() => lastName.focus(), 300);
     });
@@ -312,7 +306,6 @@
         return;
       }
       lastName.closest('.input-group').classList.remove('error');
-      displayFullName.textContent = `${firstName.value.trim()} ${surname}`;
       showStep(3);
       setTimeout(() => codeDigits[0].focus(), 300);
     });
